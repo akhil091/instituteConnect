@@ -1,1 +1,1 @@
-web: gunicorn iec.wsgi
+web gunicorn iec:wsgi
