@@ -1,0 +1,80 @@
+{% extends 'basic.html '%} {% load static %} {% block content %}
+<section>
+  <div class="m-0 newbreadcrumb">
+    <h1>Non-Synopsis Projects</h1>
+    <ul class="breadcrumb1">
+      <li>
+        <a href="/index">Home</a>
+      </li>
+      <li>Research projects
+      </li>
+      <li class="activee">Non-Synopsis</li>
+    </ul>
+  </div>
+  <div class="container">{% if proj %}
+          <div class="form-groupcol-md-4 col-lg-4 col-xs-6">
+            <label for="subcategory">Sub-Category</label>
+            <select id="subcategory" class="form-control" name="subcategory"  onchange="catFunction()">
+              <option value="" selected>All</option>
+              {% for item in subc %}
+              <option value="{{ item.1 }}">{{ item.1 }}</option>
+              {% endfor %}
+            </select>
+          </div>
+      {% include "searchfilter.html" %}
+    <table class="table " id="myTable">
+      <thead>
+        <tr>
+          <th onclick="sortTable(0)">
+            Non-Synopsis projects
+          </th>
+          <th class="text-center">
+            Category
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in proj %}
+        <tr>
+          <td scope="row">
+            <a href="projectpost/{{item.id}}"><p class="p1 pl-10 pr-10">{{item.title}}</p></a>
+            {% if item.description %} <p class="text-justify pl-10 pr-20  pr-xs-0">{{item.description|truncatewords:35}}&nbsp;&nbsp;<a
+              class="btn btn-default btn-xs ar-bt-margin"
+              href="/projectpost/{{item.id}}"
+              >Read more</a></p>{% endif %}
+          </td>
+          <td class="text-center">
+           <h5 class="btn btn-default btn-sm font-12 mt-10">{{item.get_subcategory_display}}</h5>
+            <a href="{{item.file.url}}" download>
+             <h5 class="btn btn-default btn-sm font-12 mt-10">Download</h5></a>
+          </td>
+        </tr>
+        {% endfor%}
+      </tbody>
+    </table>
+{% include "pagination.html" %}
+    {% else %}
+    <p>There are no projects.</p>
+    {% endif %}
+  </div>
+</section>
+<script>
+function catFunction() {
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("subcategory");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("h5")[0];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+</script>
+{% endblock %}

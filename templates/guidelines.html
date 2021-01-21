@@ -1,0 +1,30 @@
+{% extends 'basic.html '%}
+{% load static %}
+{% block content %}
+<section>
+<div class="m-0 newbreadcrumb">
+    <h1>IEC Guidelines</h1>
+    <ul class="breadcrumb1">
+      <li>
+        <a href="/index">Home</a>
+      </li>
+      <li class="activee">IEC Guidelines</li>
+    </ul>
+  </div>
+	<div class="container">
+     <div class="container-fluid">
+		{% if guide %}
+ <div class="col-md-12 pricing-table p-sm-0">
+
+<ol class="list price-list text-left text-dark text-justify   f">
+ {% for item in guide %}
+					<li><a class=" text-dark"  href="/guidelines">{{item.text}}</a></li>{% endfor %}
+                </ol>
+          </div>
+			 {% else %}
+       <p>There are no guidelines.</p>
+   {% endif %}
+	</div>
+    </div>
+</section>
+{% endblock %}
