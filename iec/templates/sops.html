@@ -1,0 +1,48 @@
+{% extends 'basic.html '%}
+{% load static %}
+{% block content %}
+<section>
+<div class="m-0 newbreadcrumb">
+    <h1>SOPS</h1>
+    <ul class="breadcrumb1">
+      <li>
+        <a href="/index">Home</a>
+      </li>
+      <li class="activee">SOPS </li>
+    </ul>
+  </div>
+    <div class="container pt-xs-20">
+      {% if sopp %}{% include "searchfilter.html" %}
+      <table class="table " id="myTable">
+      <thead>
+        <tr>
+          <th onclick="sortTable(0)">
+            SOPS
+          </th>
+          <th class="text-center" >
+            Download
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in sopp %}
+        <tr>
+          <td scope="row">
+            <p class="p1 ">{{item.title}}</p>
+            {% if item.Description %} <p class=" text-justify">{{item.Description}}</p>{% endif %}
+          </td>
+          <td class="text-center">
+            <a href="{{item.file.url}}" download>
+               <h5 class="btn btn-default btn-sm font-12 mt-10">Download</h5></a>
+          </td>
+        </tr>
+        {% endfor%}
+      </tbody>
+    </table>{% include "pagination.html" %}
+      {% else %}
+        <p>There are no Sop's.</p>
+     {% endif %}
+    </div>
+
+</section>
+{% endblock %}

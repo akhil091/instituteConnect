@@ -1,0 +1,42 @@
+{% extends 'basic.html '%}
+{% load static %}
+{% block content %}
+<section>
+<div class="m-0 newbreadcrumb">
+    <h1>Gallery</h1>
+    <ul class="breadcrumb1">
+      <li>
+        <a href="/index">Home</a>
+      </li>
+      <li class="activee">Gallery</li>
+    </ul>
+  </div>
+    <div class="container">
+        <div class="gallery-isotope default-animation-effect grid-4 gutter clearfix" data-lightbox="gallery" >
+           {% if photos %}
+            {% for item in photos %}
+            <div class="gallery-item">
+              <div class="thumb">
+                <img alt="project" src="/media/{{item.images}}" class="imgheight img-fullwidth">
+                {% if item.caption %}
+                <div class="caption p-5">{{item.caption}}</div>{% endif %}
+                <div class="overlay-shade"></div>
+                <div class="icons-holder">
+                  <div class="icons-holder-inner">
+                    <div class="styled-icons icon-sm icon-dark icon-circled icon-theme-colored">
+                      <a href="/media/{{item.images}}" data-lightbox-gallery="gallery"><i class="fa fa-search-plus"></i></a>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+             {% else %}
+       <p>There are no photos.</p>
+   {% endif %}
+          </div>
+    </div>
+</section>
+
+{% endblock %}
