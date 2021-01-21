@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from datetime import datetime
-from .forms import FilterForm
 from django.http import HttpResponse
 from .models import subcategory_choices, about, director, img_slider, staff, faq, feedback, guideline, announcement, sop, certificate, event, project, gallery
 
