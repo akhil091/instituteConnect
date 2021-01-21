@@ -9,7 +9,7 @@ SECRET_KEY = 'madnp=(*j8v@jjm4rf*qjk6kfj2l8ekmcvs^zs+^*goim#*w+f'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['agile-savannah-03239.herokuapp.com','127.0.0.1']
 
 # Application definition
 
