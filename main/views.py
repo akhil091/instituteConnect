@@ -15,7 +15,7 @@ def index(request):
     guide = guideline.objects.all()
     slider = img_slider.objects.all()
     context = { 'introduction': introduction,'faq1': faq1,'announce': announce, 'eve': eve, 'photos': photos,   'guide': guide,'direct':direct,'slider': slider }
-    return render(request, 'templates/index.html', context)
+    return render(request, 'index.html', context)
 
 def intro(request):
     introduction = about.objects.all()

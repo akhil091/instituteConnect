@@ -1,7 +1,10 @@
 from django.urls import path
+from django.contrib import admin
+from django.views.generic.base import RedirectView
 from . import views
 
 urlpatterns = [
+    path('admin/', admin.site.urls),
     path("index/", views.index, name="index"),
     path("about/", views.intro, name="about"),
     path("faq/", views.faqq, name="faq"),
@@ -17,4 +20,5 @@ urlpatterns = [
     path("non-synopsis/", views.projectnonsynopsis, name="non-synopsis"),
     path("projectpost/<int:id>", views.projectpost, name="projectposts"),
     path("contact/", views.contacts, name="Contact"),
+    path('',RedirectView.as_view(url="index/")),
 ]
