@@ -9,6 +9,6 @@ Django, CSS, JavaScript, SQLite
 
 ![image](https://github.com/akhil091/instituteConnect/assets/31368316/6e2e895e-3279-4dcf-9573-339b47886413)
 
-
+![image](https://github.com/akhil091/instituteConnect/assets/31368316/68d54317-113e-4832-8956-2ad85b479283)
 
 
