@@ -5,4 +5,10 @@ management for streamlined communication within the institution
 ## Tech Stack
 Django, CSS, JavaScript, SQLite
 
+![image](https://github.com/akhil091/instituteConnect/assets/31368316/7513431d-e2fc-468b-b05a-b0d2d19edb7f)
+
+![image](https://github.com/akhil091/instituteConnect/assets/31368316/6e2e895e-3279-4dcf-9573-339b47886413)
+
+
+
 
